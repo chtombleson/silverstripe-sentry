@@ -258,8 +258,9 @@ class SentryLogger
     {
         if (Controller::has_curr()) {
             $controller = Controller::curr();
+
             if ($request = $controller->getRequest()) {
-                return $request->getIP();
+                return $request->getIP() ?: '';
             }
         }
 
